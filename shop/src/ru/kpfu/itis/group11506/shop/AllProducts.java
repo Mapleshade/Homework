@@ -3,7 +3,8 @@ package ru.kpfu.itis.group11506.shop;
 public class AllProducts {
 
 	Product[] all = new Product[16];
-
+	Sorting sorting = new Sorting();
+	
 	public AllProducts() {
 
 		all[0] = new Bicycle(20000, "Kettler Cycle M", 3, "mechanical");
@@ -27,5 +28,13 @@ public class AllProducts {
 
 	public Product get(int index) {
 		return all[index];
+	}
+	
+	public void sortPrice() {
+	sorting.priceSort(all);
+	}
+	
+	public void sortRating() {
+	sorting.ratingSort(all);
 	}
 }
