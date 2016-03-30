@@ -57,6 +57,10 @@ public class LinkedStack<T> implements Stack<T> {
 	@Override
 	public T poll() {
 		Node<T> newNode = startStack;
+		if (startStack.getNextNode() == null) {
+			startStack = null;
+			return newNode.getValue();
+		}
 		while (startStack.getNextNode() != null) {
 			newNode = newNode.getNextNode();
 			startStack = startStack.getNextNode();

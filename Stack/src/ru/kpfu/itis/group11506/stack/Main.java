@@ -3,8 +3,8 @@ package ru.kpfu.itis.group11506.stack;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		//тест линкедСтэка;
+
+		// тест линкедСтэка;
 		LinkedStack<Integer> linkedStack = new LinkedStack<>();
 
 		linkedStack.push(1);
@@ -18,11 +18,11 @@ public class Main {
 		Integer example = linkedStack.poll();
 		System.out.println(example + "b");
 		System.out.println(linkedStack.peek() + "c");
-		
-		/*String exampleString = "1 + { 2 + 3} + (4 + 5)";
+
+		String exampleString = "1 + { 2 + 3} + (4 + 5)";
 		Check check = new Check(exampleString);
 		boolean result = check.checkLine();
-		System.out.println(result);*/
+		System.out.println(result);
 
 	}
 
