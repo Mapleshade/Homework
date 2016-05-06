@@ -10,7 +10,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		String example1 = readFile();
-		int[][] example = fromStringToIntArray(example1);
+		String newCode = deleteEnter(example1);
+		System.out.println(example1);
+		System.out.println();
+		System.out.println(newCode);
+		System.out.println();
+		int[][] example = fromStringToIntArray(newCode);
 		for (int j = 0; j < example.length; j++) {
 			for (int k = 0; k < example[j].length; k++) {
 				System.out.print(example[j][k] + " ");
@@ -38,6 +43,7 @@ public class Main {
 			if (numbersChar[i] == ' ') {
 				number = code.substring(j, i);
 				j = i + 1;
+
 				try {
 					Integer i1 = new Integer(number);
 					if (n < size && k < size) {
@@ -55,12 +61,25 @@ public class Main {
 		}
 		return numbersInt;
 	}
-
+	
+	public static String deleteEnter(String code) {
+		String firstNewCode = code.replaceAll("\n|\r\n", " ");
+		char firstElement = firstNewCode.charAt(0);
+		String newCode = "" + firstElement;
+		for(int i = 1; i < firstNewCode.length(); i++) {
+			if(!(firstNewCode.charAt(i - 1) == ' ' && firstNewCode.charAt(i) == ' ')) {
+				
+				newCode += firstNewCode.charAt(i);
+				
+			}
+		}
+		return newCode;
+	}
 	public static String readFile() {
 		byte[] buffer = new byte[5000];
 		String code = null;
 		try (InputStream fis = new BufferedInputStream(
-				new FileInputStream(new File("C:/Users/Элина/Desktop/in.bin")))) {
+				new FileInputStream(new File("C:/Users/Элина/Desktop/init.txt")))) {
 			fis.read(buffer);
 			code = new String(buffer);
 
