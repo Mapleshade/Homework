@@ -45,9 +45,9 @@ public class StringToArr {
 			}
 		}
 
-		 if (sourceText.length - 1 > 0 && sourceText[sourceText.length - 1] != '\n') {
-		 size++;
-		 }
+		if (sourceText.length - 1 > 0 && sourceText[sourceText.length - 1] != '\n') {
+			size++;
+		}
 
 		// объявление нового и нужного нам массива строк с заданной
 		// размерностью;

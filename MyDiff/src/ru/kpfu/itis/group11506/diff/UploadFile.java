@@ -104,11 +104,13 @@ public class UploadFile {
 			// если индексы не совпали, то копируем строку;
 			if (indexOfString != indexOfDiff) {
 				writer.println(needUploadFile[indexOfString]);
+				System.out.println(needUploadFile[indexOfString]);
 			} else {
 				// если совпали, то копируем строку из diffфайла, вычисляем
 				// новый индекс строки, в которой произошло изменение и делаем
 				// шаг на новую строку в diffфайле;
-				writer.println(diffFile[index].substring(5, diffFile[index].length() - 1));
+				writer.println(diffFile[index].substring(5, diffFile[index].length()));
+				System.out.println(diffFile[index].substring(5, diffFile[index].length()));
 				indexOfDiff = getIndexOfString(diffFile, ++diffNumber);
 				index++;
 			}
