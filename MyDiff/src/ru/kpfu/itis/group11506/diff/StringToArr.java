@@ -12,6 +12,7 @@ public class StringToArr {
 			buffer = new char[(int) f.length()];
 			// считаем файл полностью
 			reader.read(buffer);
+			System.out.println(FilePath);
 			System.out.println(new String(buffer));
 			System.out.println();
 		} catch (IOException ex) {
@@ -44,9 +45,9 @@ public class StringToArr {
 			}
 		}
 
-		// if (sourceText[sourceText.length - 1] != '\n') {
-		// size++;
-		// }
+		 if (sourceText.length - 1 > 0 && sourceText[sourceText.length - 1] != '\n') {
+		 size++;
+		 }
 
 		// объявление нового и нужного нам массива строк с заданной
 		// размерностью;

@@ -30,9 +30,9 @@ public class Test {
 			e.printStackTrace();
 		}
 
-		for (int i = 0; i < myDiff.length; i++) {
-			System.out.println(myDiff[i]);
-		}
+		//for (int i = 0; i < myDiff.length; i++) {
+		//	System.out.println(myDiff[i]);
+		//}
 		// System.out.println(myDiff.length);
 		uploadFile.uploadFile(myDiff, stringToArr.fromStringToArr(stringToArr.readFile(changed)), changed);
 	}
