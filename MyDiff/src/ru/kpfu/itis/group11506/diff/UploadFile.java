@@ -25,7 +25,7 @@ public class UploadFile {
 		char[] oneStringOfDiffFile = diffFile[begin].toCharArray();
 
 		// переменная для нахождения конца индекса строки;
-		int j = 0;
+		int j = 2;
 
 		// индекс строки с изменение находится между определенными символами на
 		// опреденной позиции в строке;
@@ -104,11 +104,11 @@ public class UploadFile {
 			// если индексы не совпали, то копируем строку;
 			if (indexOfString != indexOfDiff) {
 				writer.println(needUploadFile[indexOfString]);
-			} else {
+			} else  {
 				// если совпали, то копируем строку из diffфайла, вычисляем
 				// новый индекс строки, в которой произошло изменение и делаем
 				// шаг на новую строку в diffфайле;
-				writer.println(diffFile[index]);
+				writer.println(diffFile[index].substring(5, diffFile[index].length()-1));
 				indexOfDiff = getIndexOfString(diffFile, ++diffNumber);
 				index++;
 			}

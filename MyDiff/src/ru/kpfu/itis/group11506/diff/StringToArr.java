@@ -5,16 +5,20 @@ import java.io.*;
 public class StringToArr {
 
 	public String readFile(String FilePath) {
-		byte[] buffer = new byte[5000];
-		String code = null;
-		try (InputStream fis = new BufferedInputStream(new FileInputStream(new File(FilePath)))) {
-			fis.read(buffer);
-			code = new String(buffer);
-			fis.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		String code = "";
+		char[] buffer = null;
+
+		File f = new File(FilePath);
+		try (FileReader reader = new FileReader(f)) {
+			buffer = new char[(int) f.length()];
+			// считаем файл полностью
+			reader.read(buffer);
+			System.out.println(new String(buffer));
+		} catch (IOException ex) {
+
+			System.out.println(ex.getMessage());
 		}
-		return code;
+		return new String(buffer);
 	}
 
 	/**
