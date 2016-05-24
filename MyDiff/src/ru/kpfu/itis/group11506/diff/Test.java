@@ -29,11 +29,11 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		for(int i = 0; i < myDiff.length; i++) {
+
+		for (int i = 0; i < myDiff.length; i++) {
 			System.out.println(myDiff[i]);
 		}
-		//System.out.println(myDiff.length);
+		// System.out.println(myDiff.length);
 		uploadFile.uploadFile(myDiff, stringToArr.fromStringToArr(stringToArr.readFile(changed)), changed);
 	}
 }

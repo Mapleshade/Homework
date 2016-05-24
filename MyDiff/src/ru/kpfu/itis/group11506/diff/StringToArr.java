@@ -5,7 +5,6 @@ import java.io.*;
 public class StringToArr {
 
 	public String readFile(String FilePath) {
-		String code = "";
 		char[] buffer = null;
 
 		File f = new File(FilePath);
@@ -14,6 +13,7 @@ public class StringToArr {
 			// считаем файл полностью
 			reader.read(buffer);
 			System.out.println(new String(buffer));
+			System.out.println();
 		} catch (IOException ex) {
 
 			System.out.println(ex.getMessage());
@@ -44,9 +44,9 @@ public class StringToArr {
 			}
 		}
 
-		if (sourceText[sourceText.length - 1] != '\n') {
-			size++;
-		}
+		// if (sourceText[sourceText.length - 1] != '\n') {
+		// size++;
+		// }
 
 		// объявление нового и нужного нам массива строк с заданной
 		// размерностью;
@@ -77,7 +77,7 @@ public class StringToArr {
 				}
 			}
 		}
-		if (sourceText[sourceText.length - 1] != '\n') {
+		if (sourceText.length - 1 > 0 && sourceText[sourceText.length - 1] != '\n') {
 			save = text.substring(j, sourceText.length - 1);
 			textArr[textArr.length - 1] = save;
 		}

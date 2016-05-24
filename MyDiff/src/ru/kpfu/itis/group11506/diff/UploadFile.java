@@ -14,8 +14,8 @@ public class UploadFile {
 	 * @return
 	 */
 	private int getIndexOfString(String[] diffFile, int begin) {
-		//проверка, остались ли еще строки с изменениями;
-		if (begin > (diffFile.length - 1) / 2) {
+		// проверка, остались ли еще строки с изменениями;
+		if (begin > diffFile.length - 2) {
 			return -1;
 		}
 		// переменная, куда запишем индекс строки с изменениями;
@@ -63,25 +63,25 @@ public class UploadFile {
 		char[] lastStringOfDiffFile = diffFile[diffFile.length - 1].toCharArray();
 
 		// заготавливаем переменную для записи размера;
-		int size = 4;
+		int size = 0;
 
 		// пробегаем по массиву в поиске опозновательного символа двоеточия с
 		// пробелом, после которых росположено количество строк в коде;
-		//int i = 1;
-		//while (!(lastStringOfDiffFile[i - 1] == '>' && lastStringOfDiffFile[i] == ' ')) {
-		//	i++;
-		//}
-		//int j =0;
-		//while (lastStringOfDiffFile[j] != ':') {
-		//	j++;
-		//}
+		int i = 1;
+		while (!(lastStringOfDiffFile[i - 1] == ':' && lastStringOfDiffFile[i] == ' ')) {
+			i++;
+		}
+		// int j =0;
+		// while (lastStringOfDiffFile[j] != ':') {
+		// j++;
+		// }
 		// пытаемся извлечь это число;
-		//try {
-		//	String number = diffFile[diffFile.length - 1].substring(i + 1,j);
-		//	size = new Integer(number);
-		//} catch (NumberFormatException e) {
-		//	System.err.println("Неверный формат строки!");
-		//}
+		try {
+			String number = diffFile[diffFile.length - 1].substring(i + 1, diffFile[diffFile.length - 1].length() - 1);
+			size = new Integer(number);
+		} catch (NumberFormatException e) {
+			System.err.println("Неверный формат строки!");
+		}
 
 		// создаем новый массив строк, куда перезапишем файл;
 		// String[] newFile = new String[size];
@@ -104,11 +104,11 @@ public class UploadFile {
 			// если индексы не совпали, то копируем строку;
 			if (indexOfString != indexOfDiff) {
 				writer.println(needUploadFile[indexOfString]);
-			} else  {
+			} else {
 				// если совпали, то копируем строку из diffфайла, вычисляем
 				// новый индекс строки, в которой произошло изменение и делаем
 				// шаг на новую строку в diffфайле;
-				writer.println(diffFile[index].substring(5, diffFile[index].length()-1));
+				writer.println(diffFile[index].substring(5, diffFile[index].length() - 1));
 				indexOfDiff = getIndexOfString(diffFile, ++diffNumber);
 				index++;
 			}

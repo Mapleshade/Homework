@@ -65,7 +65,7 @@ public class Diff {
 			}
 
 		}
-		writer.println("Original size: " + M);
+		writer.println("Original size: " + M + " ");
 		writer.close();
 	}
 
