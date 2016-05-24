@@ -58,20 +58,22 @@ public class Test {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else {
 
-		// если нет аргументов командной строки, то по умолчанию считываются два
-		// файла, создается патч и обновляется второй файл;
-		try {
-			diff.diff(stringToArr.fromStringToArr(stringToArr.readFile(origin)),
-					stringToArr.fromStringToArr(stringToArr.readFile(changed)), out, outFile);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			// если нет аргументов командной строки, то по умолчанию считываются
+			// два
+			// файла, создается патч и обновляется второй файл;
+			try {
+				diff.diff(stringToArr.fromStringToArr(stringToArr.readFile(origin)),
+						stringToArr.fromStringToArr(stringToArr.readFile(changed)), out, outFile);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			String[] myDiff = stringToArr
+					.fromStringToArr(stringToArr.readFile("C:/Users/Элина/Desktop/Java/2 семестр/MyDiff/out.diff"));
+			uploadFile.uploadFile(myDiff, stringToArr.fromStringToArr(stringToArr.readFile(changed)), changed);
 		}
-		String[] myDiff = stringToArr
-				.fromStringToArr(stringToArr.readFile("C:/Users/Элина/Desktop/Java/2 семестр/MyDiff/out.diff"));
-		uploadFile.uploadFile(myDiff, stringToArr.fromStringToArr(stringToArr.readFile(changed)), changed);
 	}
 }
